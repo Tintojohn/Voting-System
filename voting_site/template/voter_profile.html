@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>voter Profile</title>
+
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+
+body {
+  background: url('https://images.unsplash.com/photo-1420496368970-d83b063b5b48?fit=crop&fm=jpg&h=700&q=80&w=1225') no-repeat center center;
+  background-size: 1400px 700px;
+  background-position: 30%;
+  background-attachment: fixed;
+}
+
+
+.text {
+  font-family: raleway;
+  font-size: 40px;
+  position: absolute center;
+  text-align: center;
+  padding-left: 0%;
+  color: #000;
+  margin-top: 43px;
+}
+
+.text1 {
+  font-family: raleway;
+  font-size: 21px;
+  text-align: center;
+  margin-top: -20px;
+  color: #000;
+}
+
+.image {
+  text-align: center;
+  width: 200px;
+  /* Container's dimensions */
+
+  height: 200px;
+  -webkit-border-radius: 75%;
+  -moz-border-radius: 75%;
+  box-shadow: 0 0 0 1px #eee;
+  background: url("{{ profile_view.Voter_Image.url }}") center center no-repeat;
+  background-size: cover;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: -30px;
+  align-content: center;
+}
+
+
+
+.trick {
+  display: inline-block;
+  vertical-align: middle;
+  height: 150px;
+}
+
+.image:hover {
+  box-shadow: 0px 5px 20px .9px #3F3F3F;
+}
+
+.image:hover {
+  -webkit-transform: scale(1.12);
+  transform: scale(1.12);
+  -webkit-transition: 1.6s ease-in-out;
+  transition: 1.6s ease-in-out;
+}
+
+.trick:hover img {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+#overlay {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  padding: 0 0 0 0;
+  opacity: 1.0;
+  -webkit-transition: opacity 2.25s ease;
+  -moz-transition: opacity 10.25s ease;
+}
+
+#box:hover #overlay {
+  opacity: 1;
+}
+
+.panel-group{
+  width:350px;
+  margin:auto;
+  /*margin:50px 400px 50px 400px;*/
+  max-width:100%;
+}
+
+.panel-heading{
+  background-color:transparent !important;
+}
+
+.title{
+  text-align: center;
+  background-color:transparent;
+  color:#000;
+  font-family:lato;
+  font-weight:300;
+  font-size:15px;
+  max-width:100%;
+}
+
+#accordion{
+  background-color: transparent;
+  max-width:100%;
+  margin-bottom:200px;
+}
+
+
+.btn-outline {
+  color: inherit;
+  transition: all 1.4s;
+  background-color: transparent;
+}
+/* button CSS */
+
+.btn-danger.btn-outline {
+  margin-top: 9px;
+  background-color: transparent;
+  color: #000;
+  border-color: #000;
+  padding:auto;
+  padding:10px 0px 10px 0px;
+  margin: 1px 5px 1px 0px;
+  width: 100%;
+  text-align:center;
+  font-family: raleway;
+  font-weight: 300;
+  max-width:100%;
+}
+
+/*---------    Contact Form    ------------*/
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #000;
+  font-size: 15px;
+}
+/* on hover placeholder */
+
+input:hover::-webkit-input-placeholder,
+textarea:hover::-webkit-input-placeholder {
+  color: #fff;
+  font-size: 15px;
+  font-family: raleway;
+}
+
+input:hover:focus::-webkit-input-placeholder,
+textarea:hover:focus::-webkit-input-placeholder {
+  color: #fff;
+  font-family: raleway;
+}
+
+input:hover::-moz-placeholder,
+textarea:hover::-moz-placeholder {
+  color: #fff;
+  font-size: 15px;
+  font-family: raleway;
+}
+
+input:hover:focus::-moz-placeholder,
+textarea:hover:focus::-moz-placeholder {
+  color: #fff;
+  font-family: raleway;
+}
+
+input:hover::placeholder,
+textarea:hover::placeholder {
+  color: #fff;
+  font-size: 15px;
+  font-family: raleway;
+}
+
+input:hover:focus::placeholder,
+textarea:hover:focus::placeholder {
+  color: #fff;
+  font-family: raleway;
+}
+
+input:hover::placeholder,
+textarea:hover::placeholder {
+  color: #fff;
+  font-size: 15px;
+  font-family: raleway;
+}
+
+input:hover:focus::-ms-placeholder,
+textarea:hover::focus:-ms-placeholder {
+  color: #fff;
+  font-family: raleway;
+}
+
+#form {
+  position: relative;
+  width: 100%;
+  margin: 0px auto 0px auto;
+  font-family: raleway;
+}
+
+input {
+  font-family: raleway;
+  font-size: 15px;
+  width: 100%;
+  height: 50px;
+  padding: 0px 12px 0px 12px;
+  background: transparent;
+  outline: none;
+  color: #726659;
+  border: solid 1px #eee;
+  border-bottom: none;
+  transition: all 0.9s ease-in-out;
+  -webkit-transition: all 0.9s ease-in-out;
+  -moz-transition: all 0.9s ease-in-out;
+  -ms-transition: all 0.9s ease-in-out;
+}
+
+input:hover {
+  background: #ccc;
+  color: #fff;
+  font-family: raleway;
+}
+
+textarea {
+  width: 100%;
+  max-width: 100%;
+  height: 110px;
+  max-height: 110px;
+  padding: 15px;
+  background: transparent;
+  outline: none;
+  color: #000;
+  font-family: raleway;
+  font-size: 25px;
+  border: solid 1px #eee;
+  transition: all 0.9s ease-in-out;
+  -webkit-transition: all 0.9s ease-in-out;
+  -moz-transition: all 0.9s ease-in-out;
+  -ms-transition: all 0.9s ease-in-out;
+}
+
+textarea:hover {
+  background: #ccc;
+  color: #fff;
+  font-family: raleway;
+}
+
+#submit {
+  width: 100%;
+  padding: 0;
+  font-family: raleway;
+  font-size: 20px;
+  color: #000;
+  outline: none;
+  cursor: pointer;
+  border: solid 1px #000;
+  border-top: none;
+  margin-bottom: 0px;
+}
+
+#submit:hover {
+  color: #00cc0c;
+  background-color: #000;
+}
+
+</style>
+</head>
+<body>
+{% block content %}
+
+<div class="box">
+    <div id="overlay">
+      <div class="image">
+        <div class="trick">
+
+        </div>
+      </div>
+      <ul class="text">{{ profile_view.Name }}</ul>
+      <div class="text1">Voter Id : {{ profile_view.Voter_id }}</div>
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading " role="tab" id="headingOne">
+      <h4 class="panel-title ">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="" aria-controls="collapseOne">
+          <div class="title  btn btn-danger btn-outline btn-lg">PERSONAL INFORMATION</div>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+          <h5>Age : {{ profile_view.Age }} </h5>
+          <h5>DOB : {{ profile_view.Date_of_Birth }}</h5>
+          <h5>Gender : {{ profile_view.Gender }}</h5>
+          <h5>Phone Number : {{ profile_view.Phone_Number }}</h5>
+          <h5>Address : {{ profile_view.Address }}</h5>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <div class="title btn btn-danger btn-outline btn-lg">ID PROOF</div>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+          <img width=100 height=100 src=" {{ profile_view.Address_Proof.url }} "><br>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <div class="title btn btn-danger btn-outline btn-lg">POLING STATUS</div>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+
+          <h5>Poling Status : {{ profile_view.Poling_Status }}</h5>
+        <form id="form" class="topBefore">
+          <a href="/poll" > Go to Voting Page
+          <!--<input id="submit" type="submit" value="Go to Voting Page">-->
+            </a>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+<!--<h1 align="center">Voter Profile</h1>
+<center>
+    <img width=50 height=50 src=" {{ profile_view.Voter_Image.url }} "> <br>
+    {{ profile_view.Voter_id }}<br>
+    {{ profile_view.Name }}<br>
+    {{ profile_view.Age }}<br>
+    {{ profile_view.Date_of_Birth }}<br>
+    {{ profile_view.Gender }}<br>
+    {{ profile_view.Phone_Number }}<br>
+    {{ profile_view.Address }}<br>
+    <img width=50 height=50 src=" {{ profile_view.Address_Proof.url }} "><br>
+    {{ profile_view.Poling_Status }}<br>
+</center>-->
+</div>
+
+{% endblock %}
+</body>
+</html>

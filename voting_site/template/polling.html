@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor1/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor1/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor1/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor1/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor1/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor1/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<!--===============================================================================================-->
+    <meta charset="UTF-8">
+    <title>Polling</title>
+    <style>
+        th {
+        text-align: center;
+        }
+
+        table.tab {
+        margin: 0px auto;
+        }
+    </style>
+</head>
+<body background="{% static 'images/bg-01.jpg' %}">
+<center>
+<img src="{% static 'images/VOTE.jpg' %}" height="150" width="1280">
+{% block content %}
+    <h2>{{ electiontime.Election_code }} - {{ electiontime.Election_Name }}</h2>
+<table id="table" border="1" cellpadding="10" bgcolor="white">
+    <tr>
+        <th height="40" width="152">Nominee Id</th>
+        <th height="40" width="149">Nominee Name</th>
+        <th height="40" width="147">Nominee Photo</th>
+        <th height="40" width="149">Party</th>
+        <th height="40" width="147">Sign</th>
+        <th height="40" width="147"></th>
+    </tr>
+</table>
+
+    {% for n in nominee_view %}
+
+    <form action="" method="post">{% csrf_token %}
+        <table border="1" bgcolor="white" class="tab">
+        <tr class="myRow">
+            <td height="50" width="152"><input class="input100" type="number" name="nid" value="{{ n.Nominee_Id }}" readonly></td>
+            <td height="50" width="149"><input class="input100" type="text" name="name" value="{{ n.Nominee_Name }}" readonly></td>
+            <td height="50" width="147"><input class="input100" type="image" name="photo"width="50" height="50" src="{{ n.Nominee_Photo.url }}" readonly></td>
+            <td height="50" width="149"><input class="input100" type="text" name="party" value="{{ n.Party }}" readonly></td>
+            <td height="50" width="147"><input class="input100" type="image" name="sign" width="50" height="50" src="{{ n.Sign.url }}" readonly></td>
+            <td height="50" width="147"><button class="input100" type="submit"  class="myBtn"><a href="{% url 'votes' voter n.id %}">VOTE</a></button></td>
+        </tr>
+        </table>
+
+    </form>
+            <script>
+                var buttons = document.getElementsByClassName('myBtn');
+                n = buttons.length;
+                for(var i=0; i<n; i++){
+                buttons[i].setAttribute("id","btn"+i)
+                buttons[i].setAttribute("name","name"+i)
+                }
+            </script>
+    {% endfor %}
+{% endblock %}
+</center>
+</body>
+</html>

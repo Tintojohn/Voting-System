@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.btn {
+  border: none;
+  background-color: #fff;
+  padding: 14px 28px;
+  font-size: 20px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn:hover {background: #bbbebf;}
+
+.btn {color: green;}
+
+<!--image-->
+
+.center {
+  display: block;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 50%;
+}
+
+</style>
+</head>
+<body>
+<img src="{% static 'img/home.jpg' %}" align="center" class="center" height="500" width="600">
+<b><button class="btn" align="center">Cast Your Vote</button></b>
+</body>
+</html>

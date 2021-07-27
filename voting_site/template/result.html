@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+</head>
+<body>
+{% block content %}
+<table id="table" border="1" cellpadding="10">
+    <tr>
+        <th>Nominee Id</th>
+        <th>Nominee Name</th>
+        <th>Party</th>
+        <th>Votes</th>
+    </tr>
+
+        {% for m in nominee %}
+    <form action="#" method="post">{% csrf_token %}
+        <tr class="tr">
+            <td>{{ m.Nominee_Id }}</td>
+            <td>{{ m.Nominee.Name }}</td>
+            <td>{{ m.Party }}</td>
+            <td>{{ m.id_count }}</td>
+        </tr>
+        <script>
+
+                var n = {{num}};
+                for(var i=0; i<n; i++){
+                n[i].setAttribute("id","row"+i)
+                }
+        </script>
+    </form>
+        {% endfor %}
+</table>
+{% endblock %}
+</body>
+</html>

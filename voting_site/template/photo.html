@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Polling</title>
+</head>
+<body>
+{% block content %}
+<form method = "post" enctype="multipart/form-data">
+<h2>{{msg}}</h2> <h3>{{msg1}}</h3>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+
+{% endblock %}
+</body>
+</html>

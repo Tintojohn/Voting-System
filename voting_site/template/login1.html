@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+<title> Voter Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="{% static 'css/reg_formstyle.css' %}" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+<!-- //web font -->
+	<meta charset="utf-8">
+    <!-- Somehow I got an error, so I comment the title, just uncomment to show -->
+    <!-- <title>Preview Image Before Upload | CodingNepal</title> -->
+    <link rel="stylesheet" href="img_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<div id="image" style="float:center;">
+        <img src="{% static 'img/login.jpg' %}" width="30" height="40" align="center"/>
+    </div>
+
+    <div id="texts" style="float:center;">
+		<h1>LOGIN</h1>
+    </div>
+
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form action="#" method="post">{% csrf_token %}
+					<h6>{{msg}}</h6>
+					<style>
+						h6 {
+						text-align: center;
+						color: red;
+						}
+					</style>
+					<div class="container">
+						<font color="white"><h4>Voter Id Number : </h4></font><input class="text" type="text" name="voterid" required="">
+						<font color="white"><h4>Phone Number : </h4></font><input class="text" type="number" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required="">
+					<div class="wthree-text">
+						<label class="anim">
+							<input type="checkbox" class="checkbox" required="">
+							<span>I Agree To The Terms & Conditions</span>
+						</label>
+						<div class="clear"> </div>
+					</div>
+					<input type="submit" value="LOGIN">
+					</div>
+				</form>
+			</div>
+		</div>
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<!-- //main -->
+</body>
+</html>
+
+
